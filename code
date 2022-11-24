@@ -1,0 +1,346 @@
+#include <stdio.h>
+#include <windows.h>
+int main()
+{
+    char text[42], text1[42], text2[42];
+    int znak, code, n, c = 1, y = 0, knopka;
+    SetConsoleOutputCP(CP_UTF8);
+    int strlen (char *text)
+    {
+        int i = 0;
+        while (text[i]) i++;
+        return i;
+    }
+
+    char *strncat(char *text,char *text1,int n)
+    {
+        int counter = 0,len;
+        char t;
+        len = strlen(text);
+        if ((40 - len - n) >= 0) {
+            for (int i = len; i < (len+n); i++) {
+                t = text1[counter];
+                text[i] = t;
+                counter++;
+            }
+            text[counter+len] = 0;
+        }
+
+        else
+            printf("Переполнение массива\n");
+    }
+    char *strcpy(char *text,char *text1)
+    {
+        for (int i = 0; i < strlen(text1);i++)
+        {
+            text[i] = text1[i];
+        }
+        text[strlen(text1)] = 0;
+    }
+    char *strrev(char * text)
+    {
+        for (int i = 0;i < strlen(text)/2;i++)
+        {
+            char t;
+            t = text[i];
+            text[i] = text[strlen(text)-1-i];
+            text[strlen(text)-1-i] = t;
+        }
+    }
+    char *strU_case(char * text)
+    {
+        for(int i = 0;i < strlen(text);i++) {
+            if ((((int) (text[i])) >= 97) && (((int) (text[i])) <= 122))
+                text[i] = (int) (text[i]) - 32;
+        }
+    }
+    char *strL_case(char *text)
+    {
+        for(int i = 0;i < strlen(text);i++) {
+            if ((((int) (text[i])) >= 65) && (((int) (text[i])) <= 90))
+                text[i] = (int) (text[i]) + 32;
+        }
+    }
+    char *strcat (char *text,char *text1)
+    {
+        if ( (40 - strlen(text) - strlen(text1)) >= 0 ) {
+            int k;
+            k = strlen(text);
+            for (int i = 0; i < strlen(text1); i++) {
+                text[k] = text1[i];
+                k++;
+            }
+            text[k] = 0;
+        }
+        else
+            printf("Переполнение массива\n");
+    }
+    printf("Введите первую строку(1-20)\n");
+    gets(text);
+    while (strlen(text) > 20)
+    {
+        printf("Ошибка\nПовторите ввод\n");
+        gets(text);
+    }
+    rewind(stdin);
+    printf("Введите вторую строку(1-20)\n");
+    gets(text1);
+    while (strlen(text1) > 20)
+    {
+        printf("Ошибка\nПовторите ввод\n");
+        gets(text1);
+    }
+    rewind(stdin);
+    system("cls");
+    while (y == 0) {
+        switch (c) {
+            case 1:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case <--\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 2:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case <--\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 3:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat <--\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 4:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen <--\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 5:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev <--\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 6:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy <--\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 7:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat <--\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 8:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами <--\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                break;
+            case 9:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку <--\n0.Ввести заново вторую строку\n");
+                break;
+            case 10:
+                printf("======================================\n");
+                printf("Первая строка = %s\n", text);
+                printf("Вторая строка = %s\n", text1);
+                printf("======================================\n");
+                printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку <--\n");
+                break;
+        }
+        while (y == 0) {
+            knopka = getch();
+            if (knopka == 27)
+                return 0;
+            if ((knopka >= 49) && (knopka <= 57))
+                c = knopka - 48;
+            if (knopka == 48)
+                c = 10;
+            if (knopka == 13)
+                break;
+            if (knopka == 224) {
+                knopka = getch();
+                switch (knopka) {
+                    case 72:
+                        c--;
+                        if (c < 1)
+                            c = 10;
+                        break;
+                    case 80:
+                        c++;
+                        if (c > 10)
+                            c = 1;
+                        break;
+
+                }
+            }
+            switch (c) {
+                case 1:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case <--\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 2:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case <--\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 3:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat <--\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 4:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen <--\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 5:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev <--\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 6:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy <--\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 7:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat <--\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 8:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами <--\n9.Ввести заново первую строку\n0.Ввести заново вторую строку\n");
+                    break;
+                case 9:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку <--\n0.Ввести заново вторую строку\n");
+                    break;
+                case 10:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Первая строка = %s\n", text);
+                    printf("Вторая строка = %s\n", text1);
+                    printf("======================================\n");
+                    printf("1.strU_case\n2.strL_case\n3.strcat\n4.strlen\n5.strrev\n6.strcpy\n7.strncat\n8.Поменять строки местами\n9.Ввести заново первую строку\n0.Ввести заново вторую строку <--\n");
+                    break;
+            }
+        }
+        system("cls");
+        switch (c) {
+            case 1: // up
+                strU_case(text);
+                printf("%s\n", text);
+                break;
+            case 2: // low
+                strL_case(text);
+                printf("%s\n", text);
+                break;
+            case 3: // strcat
+                strcat(text, text1);
+                printf("%s\n",text);
+                break;
+            case 4: // strlen
+                printf("%d\n", strlen(text));
+                break;
+            case 5: // strrev
+                strrev(text);
+                printf("%s\n", text);
+                break;
+            case 6: // strcpy
+                strcpy(text, text1);
+                printf("%s\n", text);
+                break;
+            case 7: // strncat
+                rewind(stdin);
+                printf("Введите количество копируемых символов\n");
+                while ((scanf("%d", &n) != 1) || (n == 2147483647) || (n == -2147483648) || n < 0) {
+                    scanf("%*[^\n]");
+                    printf("Ошибка\nПовторите ввод:\n");
+                }
+                system("cls");
+                strncat(text, text1, n);
+                printf("%s\n", text);
+                break;
+            case 8:
+                strcpy(text2, text);
+                strcpy(text, text1);
+                strcpy(text1,text2);
+                break;
+            case 9:
+                rewind(stdin);
+                printf("Введите первую строку(1-20)\n");
+                gets(text);
+                while (strlen(text) > 20)
+                {
+                    rewind(stdin);
+                    printf("Ошибка\nПовторите ввод\n");
+                    gets(text);
+                }
+                system("cls");
+                break;
+            case 10:
+                rewind(stdin);
+                printf("Введите вторую строку(1-20)\n");
+                gets(text1);
+                while (strlen(text1) > 20)
+                {
+                    rewind(stdin);
+                    printf("Ошибка\nПовторите ввод\n");
+                    gets(text1);
+                }
+                system("cls");
+                break;
+        }
+    }
+    system("Pause");
+    printf("%s\n",text);
+}
